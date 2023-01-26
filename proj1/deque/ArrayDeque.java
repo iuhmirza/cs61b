@@ -74,8 +74,9 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         return list[start + index];
     }
 
-    public void resize() {
+    private void resize() {
         if (size == 0) {
+            return;
         } else if (size / (float) list.length > 0.75 || start + size == list.length || start == 0) {
             T[] newList = (T[]) new Object[list.length * 2];
             System.arraycopy(list, start, newList, list.length - size / 2, size);
