@@ -41,7 +41,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     @Override
     public void addLast(T x) {
         resize();
-        list[start+size] = x;
+        list[start + size] = x;
         size += 1;
     }
 
@@ -51,8 +51,8 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (size == 0) {
             return null;
         }
-        T last = list[start+size-1];
-        list[start+size-1] = null;
+        T last = list[start + size - 1];
+        list[start + size - 1] = null;
         size -= 1;
         return last;
     }
@@ -64,30 +64,21 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
 
     @Override
     public void printDeque() {
-        for (int i = start; i < start+size; i++) {
+        for (int i = start; i < start + size; i++) {
             System.out.print(list[i] + " ");
         }
     }
 
     @Override
     public T get(int index) {
-        return list[start+index];
-    }
-
-    public String toString() {
-        String repr = "";
-        for (int i = start; i < start+size; i++) {
-            repr = repr + " " + list[i];
-        }
-        return repr;
+        return list[start + index];
     }
 
     public void resize() {
         if (size == 0) {
-          return;
-        } else if (size / (float) list.length > 0.75 || start+size == list.length || start == 0) {
+        } else if (size / (float) list.length > 0.75 || start + size == list.length || start == 0) {
             T[] newList = (T[]) new Object[list.length * 2];
-            System.arraycopy(list, start, newList, list.length-size/2, size);
+            System.arraycopy(list, start, newList, list.length - size / 2, size);
             start = list.length - size / 2;
             list = newList;
         } else if (size / (float) list.length < 0.25 && list.length > 8) {
@@ -103,7 +94,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
             Deque<T> other = (Deque<T>) o;
             if (this.size == other.size()) {
                 for (int i = start; i < start + size; i++) {
-                    if (!list[i].equals(other.get(i-start))){
+                    if (!list[i].equals(other.get(i - start))) {
                         return false;
                     }
                 }
@@ -116,23 +107,25 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         }
     }
 
+    public Iterator<T> iterator() {
+        return new ArrayIterator();
+    }
+
     private class ArrayIterator implements Iterator<T> {
         private int pos;
 
-        public ArrayIterator() {
+        ArrayIterator() {
             pos = 0;
         }
+
         public boolean hasNext() {
             return pos < size;
         }
+
         public T next() {
             T item = list[start + pos];
             pos += 1;
             return item;
         }
-    }
-
-    public Iterator<T> iterator() {
-        return new ArrayIterator();
     }
 }
