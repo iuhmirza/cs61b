@@ -1,0 +1,23 @@
+What would you like L to be?: 5
+
+Enter # strings to insert into each map: 1000
+class hashmap.MyHashMapALBuckets: 0.00 sec
+class hashmap.MyHashMapLLBuckets: 0.00 sec
+class hashmap.MyHashMapTSBuckets: 0.01 sec
+class hashmap.MyHashMapHSBuckets: 0.00 sec
+class hashmap.MyHashMapPQBuckets: 0.00 sec
+
+Enter # strings to insert into each map: 1000000
+class hashmap.MyHashMapALBuckets: 0.94 sec
+class hashmap.MyHashMapLLBuckets: 1.19 sec
+class hashmap.MyHashMapTSBuckets: 1.32 sec
+class hashmap.MyHashMapHSBuckets: 1.53 sec
+class hashmap.MyHashMapPQBuckets: 1.07 sec
+
+Enter # strings to insert into each map: 10000000
+class hashmap.MyHashMapALBuckets: 9.04 sec
+class hashmap.MyHashMapLLBuckets: 9.06 sec
+class hashmap.MyHashMapTSBuckets: 12.81 sec
+class hashmap.MyHashMapHSBuckets: 15.14 sec
+class hashmap.MyHashMapPQBuckets: 11.05 sec
+
