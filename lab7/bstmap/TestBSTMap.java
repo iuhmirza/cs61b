@@ -28,12 +28,14 @@ public class TestBSTMap {
             assertTrue( null != b.get("hi" + i) && (b.get("hi"+i).equals(1+i))
                         && b.containsKey("hi" + i));
         }
+        b.printInOrder();
         assertEquals(455, b.size());
         b.clear();
         assertEquals(0, b.size());
         for (int i = 0; i < 455; i++) {
             assertTrue(null == b.get("hi" + i) && !b.containsKey("hi" + i));
         }
+        b.printInOrder();
     }
 
     // assumes put works
@@ -43,6 +45,7 @@ public class TestBSTMap {
         assertFalse(b.containsKey("waterYouDoingHere"));
         b.put("waterYouDoingHere", 0);
         assertTrue(b.containsKey("waterYouDoingHere"));
+        b.printInOrder();
     }
 
     // assumes put works
@@ -57,6 +60,7 @@ public class TestBSTMap {
         assertTrue(((Integer) b.get("KISS")).equals(5));
         assertNotEquals(null,b.get("starChild"));
         assertEquals(2, b.size());
+        b.printInOrder();
     }
 
     // assumes put works
@@ -69,6 +73,7 @@ public class TestBSTMap {
         for (int i = 0; i < 455; i++)
             b.put("hi" + i, 1);
         assertEquals(456, b.size());
+        b.printInOrder();
     }
 
     //assumes get/containskey work
@@ -77,6 +82,7 @@ public class TestBSTMap {
     	BSTMap<String, Integer> b = new BSTMap<String, Integer>();
         b.put("hi", 1);
         assertTrue(b.containsKey("hi") && b.get("hi") != null);
+        b.printInOrder();
     }
 
     //assumes put works
@@ -85,6 +91,6 @@ public class TestBSTMap {
         BSTMap<String, Integer> b = new BSTMap<String, Integer>();
         b.put("hi", null);
         assertTrue(b.containsKey("hi"));
+        b.printInOrder();
     }
-
 }
